@@ -2,15 +2,15 @@
 ### 1.
 ```
 Implement and demonstrate the FIND-S algorithm for
-findingthemostspecifichypothesisbasedonagivensetof
-trainingdatasamples.Readthetrainingdatafroma.CSV
+finding the most specific hypothesis based on agivenset of
+training datasamples. Read the training data from a .CSV
 file.
 ```
 ### 2.
 
 ```
-Foragivensetoftrainingdataexamplesstoredina.CSV
-file,implementanddemonstratethe Candidate-Elimination
+For a given set of training data examples stored in a .CSV
+file,implement anddemonstratethe Candidate-Elimination
 algorithm tooutputadescriptionofthesetofallhypotheses
 consistentwiththetrainingexamples.
 ```
