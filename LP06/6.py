@@ -35,8 +35,3 @@ print(metrics.confusion_matrix(ytest,predicted))
 print('Recall and Precison ')
 print(metrics.recall_score(ytest,predicted))
 print(metrics.precision_score(ytest,predicted))
-'''docs_new = ['I like this place', 'My boss is not my saviour']
-X_new_counts = count_vect.transform(docs_new)
-predictednew = clf.predict(X_new_counts)
-for doc, category in zip(docs_new, predictednew):
-print('%s->%s' % (doc, msg.labelnum[category]))'''
