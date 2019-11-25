@@ -1,7 +1,7 @@
 import pandas as pd
 msg=pd.read_csv('naivetrext1.csv',names=['message','label'])
 print('The dimensions of the dataset',msg.shape)
-msg['labelnum']=msg.label.map({' pos':1,' neg':0})
+msg['labelnum']=msg.label.map({'pos':1,'neg':0})
 X=msg.message
 y=msg.labelnum
 #splitting the dataset into train and test data
