@@ -1,4 +1,4 @@
-
+#Only Last 5 are tested. Dont use 1-5 programs.
 ### 1.
 ```
 Implement and demonstrate the FIND-S algorithm for
