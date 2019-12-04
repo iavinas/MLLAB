@@ -16,8 +16,8 @@ def radial_kernel(x0, X, tau):
 
 
 data = pd.read_csv('tips.csv')
-bill = data.total_bill
-tip = data.tip
+bill = data.total_bill.values
+tip = data.tip.values
 tau = 10
 ypred = np.array([local_regression(x0, bill, tip, tau) for x0 in bill])
 SortIndex = bill.argsort(0)
