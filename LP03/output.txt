@@ -1,0 +1,14 @@
+outlook
+        overcast ->  ['yes']
+
+        rain
+                wind
+                        strong ->  ['no']
+
+                        weak ->  ['yes']
+
+        sunny
+                humidity
+                        high ->  ['no']
+
+                        normal ->  ['yes']
