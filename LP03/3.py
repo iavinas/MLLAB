@@ -2,25 +2,25 @@ import pandas as pd
 import math
 import numpy as np
 
-data = pd.read_csv('3.csv')
+data = pd.read_csv("3.csv")
 features = [feat for feat in data]
-features.remove('answer')
+features.remove("answer")
 
 
 class Node:
     def __init__(self):
         self.children = []
-        self.value = ''
-        self.edge = ''
+        self.value = ""
+        self.edge = ""
         self.isLeaf = False
-        self.pred = ''
+        self.pred = ""
 
 
 def entropy(examples):
     pos = 0.0
     neg = 0.0
     for _, row in examples.iterrows():
-        if row['answer'] == 'yes':
+        if row["answer"] == "yes":
             pos += 1
         else:
             neg += 1
@@ -29,7 +29,7 @@ def entropy(examples):
     else:
         p = pos / (pos + neg)
         n = neg / (pos + neg)
-        return -(p*math.log(p, 2) + n*math.log(n, 2))
+        return -(p * math.log(p, 2) + n * math.log(n, 2))
 
 
 def info_gain(examples, attr):
@@ -38,7 +38,7 @@ def info_gain(examples, attr):
     for u in uniq:
         subdata = examples[examples[attr] == u]
         sub_e = entropy(subdata)
-        gain -= (float(len(subdata))/float(len(examples)))*sub_e
+        gain -= (float(len(subdata)) / float(len(examples))) * sub_e
     return gain
 
 
@@ -46,7 +46,7 @@ def ID3(examples, attrs):
     root = Node()
 
     max_gain = 0
-    max_feat = ''
+    max_feat = ""
     for feature in attrs:
         gain = info_gain(examples, feature)
         if gain > max_gain:
@@ -60,7 +60,7 @@ def ID3(examples, attrs):
             newNode = Node()
             newNode.isLeaf = True
             newNode.value = u
-            newNode.pred = np.unique(subdata['answer'])
+            newNode.pred = np.unique(subdata["answer"])
             root.children.append(newNode)
         else:
             dummyNode = Node()
@@ -76,13 +76,14 @@ def ID3(examples, attrs):
 
 def printTree(root: Node, depth=0):
     for i in range(depth):
-        print('\t', end='')
-    print(root.value, end='')
+        print("\t", end="")
+    print(root.value, end="")
     if root.isLeaf:
-        print(' -> ', root.pred)
+        print(" -> ", root.pred)
     print()
     for child in root.children:
         printTree(child, depth + 1)
+
 
 root = ID3(data, features)
 printTree(root)
